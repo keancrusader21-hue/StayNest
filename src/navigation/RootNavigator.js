@@ -9,13 +9,20 @@ import SettingsScreen from '../screens/SettingsScreen';
 import LoginScreen from '../screens/LoginScreen';
 import HouseDetailsScreen from '../screens/HouseDetailsScreen';
 import ChatScreen from '../screens/ChatScreen';
+import { colors } from '../theme';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function MainTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+  screenOptions={{
+    headerStyle: { backgroundColor: colors.dark },
+    headerTintColor: '#fff',
+    tabBarActiveTintColor: colors.primary,
+  }}
+>
       <Tab.Screen name="Explore" component={ExploreScreen} options={{ title: 'Explore Houses' }} />
       <Tab.Screen name="Map" component={CampusMapScreen} options={{ title: 'Campus Map' }} />
       <Tab.Screen name="Saved" component={SavedScreen} options={{ title: 'Saved' }} />
@@ -28,7 +35,13 @@ function MainTabs() {
 export default function RootNavigator() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Main">
+      <Stack.Navigator
+  initialRouteName="Login"
+  screenOptions={{
+    headerStyle: { backgroundColor: colors.dark },
+    headerTintColor: '#fff',
+  }}
+>
         <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Sign In' }} />
         <Stack.Screen name="Main" component={MainTabs} options={{ headerShown: false }} />
         <Stack.Screen name="HouseDetails" component={HouseDetailsScreen} options={{ title: 'House Details' }} />

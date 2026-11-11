@@ -1,11 +1,14 @@
 import { View, Text } from 'react-native';
+import { common } from '../theme';
 
 export default function ChatScreen({ route }) {
   const { house } = route.params;
   return (
-    <View style={{ padding: 16 }}>
-      <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Chat with {house.landlord}</Text>
-      <Text>About: {house.name}</Text>
+    <View style={common.screen}>
+      <View style={common.card}>
+        <Text style={common.title}>Chat with {house.landlord}</Text>
+        <Text style={common.muted}>About: {house.name}</Text>
+      </View>
     </View>
   );
 }
