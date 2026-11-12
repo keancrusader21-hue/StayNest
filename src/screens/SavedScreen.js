@@ -8,7 +8,7 @@ export default function SavedScreen({ navigation }) {
   return (
     <View style={common.screen}>
       <Text style={common.title}>Saved Boarding Houses ({saved.length})</Text>
-      {saved.length === 0 && <Text style={common.muted}>Wala pang naka-save.</Text>}
+      {saved.length === 0 && <Text style={common.muted}></Text>}
       <FlatList
         data={saved}
         keyExtractor={(h) => h.id}
