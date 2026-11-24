@@ -3,11 +3,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const BASE = 'https://api.open-meteo.com/v1/forecast';
 const CACHE_KEY = 'staynest:lastWeather';
 
-// ADSSU Bunawan area
+
 export async function fetchWeather(lat = 8.1692, lon = 126.0044) {
   const url = `${BASE}?latitude=${lat}&longitude=${lon}&current=temperature_2m,precipitation,weather_code`;
 
-  // Stop waiting after 10 seconds
+
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 10000);
 

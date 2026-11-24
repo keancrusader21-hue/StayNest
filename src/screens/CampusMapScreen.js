@@ -12,7 +12,7 @@ export default function CampusMapScreen({ navigation }) {
   const [loaded, setLoaded] = useState(false);
   const [status, setStatus] = useState('');
 
-  // READ: load the saved sort choice when the screen opens
+
   useEffect(() => {
     (async () => {
       try {
@@ -26,7 +26,7 @@ export default function CampusMapScreen({ navigation }) {
     })();
   }, []);
 
-  // CREATE / UPDATE: save the new sort choice
+
   const toggleSort = async () => {
     const next = !nearestFirst;
     setNearestFirst(next);
@@ -38,7 +38,7 @@ export default function CampusMapScreen({ navigation }) {
     }
   };
 
-  // DELETE: remove the saved choice and go back to the default
+
   const resetSort = async () => {
     try {
       await AsyncStorage.removeItem(KEY);

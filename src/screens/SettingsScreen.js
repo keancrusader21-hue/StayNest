@@ -12,7 +12,7 @@ export default function SettingsScreen({ navigation }) {
   const [loaded, setLoaded] = useState(false);
   const [status, setStatus] = useState('');
 
-  // READ: load the saved settings when the screen opens
+
   useEffect(() => {
     (async () => {
       try {
@@ -26,7 +26,7 @@ export default function SettingsScreen({ navigation }) {
     })();
   }, []);
 
-  // CREATE / UPDATE: save to the phone every time a setting changes
+
   const change = async (patch) => {
     const next = { ...settings, ...patch };
     setSettings(next);
@@ -38,7 +38,7 @@ export default function SettingsScreen({ navigation }) {
     }
   };
 
-  // DELETE: remove the saved settings and go back to the defaults
+
   const reset = async () => {
     try {
       await AsyncStorage.removeItem(KEY);
